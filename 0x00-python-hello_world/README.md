@@ -1,6 +1,6 @@
-## 0x00. Python - Hello, World
+# 0x00. Python - Hello, World
 
-# Table of contents
+## Table of contents
 Files | Description
 ----- | -----------
 [0-run](./0-run) | Shell script that runs a Python script
