@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-c = 97
-while c < 123:
-    print(chr(c), end='')
-    c += 1
+for c in range(ord('a'), ord('z') + 1):
+    print("{:c}".format(c), end="")
