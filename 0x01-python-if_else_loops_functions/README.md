@@ -20,3 +20,4 @@ Files | Description
 [lists.h](./lists.h) | header file for the C program above
 [100-print_tebahpla.py](./100-print_tebahpla.py) | Python script that prints the ASCII alphabet, in reverse order, alternating lowercase and uppercase
 [101-remove_char_at.py](./101-remove_char_at.py) | Python script that creates a copy of the string, removing the character at the position n
+[102-magic_calculation.py](./102-magic_calculation.py) | Python function created from a bytecode
