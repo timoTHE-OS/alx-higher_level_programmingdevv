@@ -18,3 +18,5 @@ Files | Description
 [12-fizzbuzz.py](./12-fizzbuzz.py) | Python function that prints the numbers from 1 to 100, but replaces multiples of 3, 5 and 3 and 5 by Fizz, Buzz and Fizzbuzz
 [13-insert_number.c](./13-insert_number.c) | function in C that inserts a number into a sorted singly linked list
 [lists.h](./lists.h) | header file for the C program above
+[100-print_tebahpla.py](./100-print_tebahpla.py) | Python script that prints the ASCII alphabet, in reverse order, alternating lowercase and uppercase
+[101-remove_char_at.py](./101-remove_char_at.py) | Python script that creates a copy of the string, removing the character at the position n
