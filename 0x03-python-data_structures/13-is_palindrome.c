@@ -31,10 +31,9 @@ void reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	int flag = 0;
 	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
-	if (*head == NULL || (*head)->next == NULL || !head)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
 	while (1)
@@ -55,15 +54,19 @@ int is_palindrome(listint_t **head)
 
 	reverse_listint(&dup);
 
-	while (dup)
+	while (dup && temp)
 	{
 		if (temp->n == dup->n)
-			flag = 1;
+		{
+			dup = dup->next;
+			temp = temp->next;
+		}
 		else
-			flag = 0;
-		dup = dup->next;
-		temp = temp->next;
+			return (0);
 	}
 
-	return (flag);
+	if (!dup)
+		return (1);
+
+	return (0);
 }
