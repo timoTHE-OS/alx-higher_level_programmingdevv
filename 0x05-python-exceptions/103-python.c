@@ -10,6 +10,7 @@ void print_python_float(PyObject *p)
 {
     PyFloatObject *f = (PyFloatObject *)p;
     double d = f->ob_fval;
+    char *str = NULL;
 
     printf("[.] float object info\n");
     if (!PyFloat_Check(f))
@@ -18,10 +19,8 @@ void print_python_float(PyObject *p)
         return;
     }
     
-    if (d - (long int)d == 0)
-        printf("  value: %.1f\n", d);
-    else    
-       printf("  value: %.16g\n", d);
+    str = PyOS_double_to_string(d, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+    printf("  value: %s\n", str);
 }
 
 void print_python_bytes(PyObject *p)
