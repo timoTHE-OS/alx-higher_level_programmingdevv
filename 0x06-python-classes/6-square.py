@@ -1,6 +1,16 @@
 #!/usr/bin/python3
 class Square:
-    """Represents a square."""
+    """Represents a square.
+    Private instance attribute: size:
+        - property def size(self)
+        - property setter def size(self, value)
+    Private instance attribute: position:
+        - property def position(self)
+        - property setter def position(self, value)
+    Instantiation with optional size and optional position.
+    Public instance method: def area(self).
+    Public instance method: def my_print(self).
+    """
 
     def __init__(self, size=0, position=(0, 0)):
         """Initializes the data."""
