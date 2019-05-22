@@ -37,7 +37,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Sets the next_node."""
-        if not isinstance(value, Node) or value is not None:
+        if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -55,7 +55,13 @@ class SinglyLinkedList:
 
     def __str__(self):
         """For the print statement in the main file."""
-        return str(self.__head.data)
+        my_str = ""
+        node = self.__head
+        while node.next_node:
+            my_str += str(node.data)
+            my_str += '\n'
+            node = node.next_node
+        return my_str[:-1]
 
     def sorted_insert(self, value):
         """Inserts a node in a sorted linked list."""
@@ -63,21 +69,14 @@ class SinglyLinkedList:
         node = self.__head
         if self.__head is None:
             self.__head = new_node
-            self.__head.__next_node = None
+            self.__head.next_node = None
             return
-        if node.__next_node is None:
-            print(node.data)
-            if value > node.data:
-                node.__next_node = new_node
-                new_node.__next_node = None
-            elif value <= node.data:
-                new_node.__next_node = node
-                self.__head = new_node
+        if new_node.data < node.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
             return
-        while value <= node.data:
-            node = node.__next_node
-            if node is None:
-                break
-        new_node.__next_node = node
-        if node is not None:
-            node.__next_node = new_node
+        else:
+            while node.next_node is not None and value < node.data:
+                node = node.next_node
+        new_node.next_node = node
+        node.next_node = new_node
