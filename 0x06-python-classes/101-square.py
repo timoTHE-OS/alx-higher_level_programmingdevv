@@ -18,7 +18,17 @@ class Square:
         self.__position = position
 
     def __str__(self):
-        return str(self.my_print())
+        """Str method for print from main module."""
+        my_str = ""
+        if self.__size == 0:
+            return '\n'
+        else:
+            my_str += '\n' * self.position[1]
+            for i in range(0, self.__size):
+                my_str += ' ' * self.__position[0]
+                my_str += '#' * self.__size
+                my_str += '\n'
+            return my_str[:-1]
 
     @property
     def size(self):
