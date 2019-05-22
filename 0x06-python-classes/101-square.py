@@ -23,7 +23,7 @@ class Square:
         if self.__size == 0:
             return '\n'
         else:
-            my_str += '\n' * self.position[1]
+            my_str += '\n' * self.__position[1]
             for i in range(0, self.__size):
                 my_str += ' ' * self.__position[0]
                 my_str += '#' * self.__size
