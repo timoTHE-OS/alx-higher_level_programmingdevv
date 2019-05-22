@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+import math
+
+
+
 class MagicClass:
-    """Initialization of the MagicClass.
-    Private methode __init__(self, radius=0)
-    Public method area(self).
-    Public method circumference(self).
-    """
+    """Initialization of the MagicClass."""
     def __init__(self, radius=0):
         """Initialization of the data."""
         self._MagicClass__radius = 0
