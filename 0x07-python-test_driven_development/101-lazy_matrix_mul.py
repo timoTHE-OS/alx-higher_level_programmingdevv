@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-"""Module matrix_mul
-Multiplies two matrices and returns the result.
+"""Module lazy_matrix_mul
+Matrix multiplication using NumPy.
 """
+import numpy
 
 
-def matrix_mul(m_a, m_b):
-    """Return the matrix resulting of
-    the multiplication of m_a and m_b."""
+def lazy_matrix_mul(m_a, m_b):
+    """Multiplies m_a and m_b using
+    matmul, and returns the result.
+    """
 
     if type(m_a) is not list:
         raise TypeError("m_a must be a list")
@@ -55,11 +57,7 @@ def matrix_mul(m_a, m_b):
     if a_col != b_row:
         raise ValueError("m_a and m_b can't be multiplied")
 
-    result = [[0 for x in range(len(m_b[0]))] for y in range(len(m_a))]
-
-    for i in range(len(m_a)):
-        for j in range(len(m_b[0])):
-            for k in range(len(m_b)):
-                result[i][j] += m_a[i][k] * m_b[k][j]
+    result = [[]]
+    result = numpy.matmul(m_a, m_b)
 
     return result
