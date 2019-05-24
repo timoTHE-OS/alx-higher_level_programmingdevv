@@ -17,6 +17,9 @@ Now test it:
     >>> matrix_mul([[1, 2]], [[3.0, 4], [5, 6.0]])
     [[13.0, 16.0]]
 
+    >>> matrix_mul([[1, -2], [-5, 6]], [[2, 3], [4, -7]])
+    [[-6, 17], [14, -57]]
+
     >>> matrix_mul([[1, 2]], 9)
     Traceback (most recent call last):
     TypeError: m_b must be a list

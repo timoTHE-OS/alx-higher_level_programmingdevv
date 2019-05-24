@@ -31,3 +31,6 @@ Now test it:
 
     >>> say_my_name("", "Holberton")
     My name is  Holberton
+
+    >>> say_my_name("", "")
+    My name is  

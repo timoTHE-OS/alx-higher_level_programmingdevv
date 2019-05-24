@@ -36,7 +36,7 @@ Now test it:
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> print_square("Hello")
+    >>> print_square(5.7)
     Traceback (most recent call last):
     TypeError: size must be an integer
 
