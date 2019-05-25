@@ -13,20 +13,8 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
 
-    i = 0
+    for delim in ".:?":
+        text = (delim + "\n\n").join(
+            [line.strip(" ") for line in text.split(delim)])
 
-    while text[i] == ' ':
-        i += 1
-
-    is_space = False
-
-    for c in range(i, len(text)):
-        if text[c] == '.' or text[c] == '?' or text[c] == ':':
-            print("{}\n\n".format(text[c]), end='')
-            is_space = True
-            continue
-        if is_space and text[c] == ' ':
-            continue
-        if is_space and text[c] != ' ':
-            is_space = False
-        print("{}".format(text[c]), end='')
+    print("{}".format(text), end="")

@@ -80,3 +80,5 @@ Now test it:
     There.
     <BLANKLINE>
 
+    >>> text_indentation("")
+
