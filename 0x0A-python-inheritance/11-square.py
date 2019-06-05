@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Module 7-base_geometry.
-Creates a class.
+"""Module 11-square.
+Creates a Square class.
 """
 
 
