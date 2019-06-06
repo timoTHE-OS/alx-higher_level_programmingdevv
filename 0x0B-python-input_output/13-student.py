@@ -46,6 +46,5 @@ class Student:
             - json: dictionnary of attributes
         """
 
-        self.__dict__.clear()
         for x in json:
             self.__dict__.update({x: json[x]})
