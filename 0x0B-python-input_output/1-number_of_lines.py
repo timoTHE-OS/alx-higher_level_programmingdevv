@@ -14,7 +14,11 @@ def number_of_lines(filename=""):
         - number of lines
     """
 
+    count = 0
+
     with open(filename) as f:
-        for i, l in enumerate(f):
-            pass
-        return i + 1
+        text = f.readlines()
+        for line in text:
+            count += 1
+
+    return count
