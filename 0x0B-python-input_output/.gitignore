@@ -5,3 +5,4 @@ __pycache__
 10-my_class.py
 *.txt
 *.json
+101-generator.py
