@@ -31,7 +31,7 @@ class Student:
         """
 
         my_dict = dict()
-        if attrs and all(isinstance(x, str) for x in attrs):
+        if type(attrs) is list and all(type(x) is str for x in attrs):
             for x in attrs:
                 if x in self.__dict__:
                     my_dict.update({x: self.__dict__[x]})
