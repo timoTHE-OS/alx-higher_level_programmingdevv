@@ -39,6 +39,9 @@ class Base:
 
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
+        if type(list_dictionaries) != list
+        or not all(type(x) == dict for x in list_dictionaries):
+            raise TypeError("list_dictionaries must be a list of dictionaries")
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -50,6 +53,9 @@ class Base:
             - list_objs: list of instances who inherits of Base
         """
 
+        if type(list_objs) != list or
+        not all(isinstance(x, cls) for x in list_objs):
+            raise TypeError("list_objs must be a list of instances")
         filename = cls.__name__ + ".json"
         l = []
         s = ''
@@ -71,6 +77,8 @@ class Base:
 
         l = []
         if json_string is not None and json_string != '':
+            if type(json_string) != str:
+                raise TypeError("json_string must be a string")
             l = json.loads(json_string)
         return l
 
