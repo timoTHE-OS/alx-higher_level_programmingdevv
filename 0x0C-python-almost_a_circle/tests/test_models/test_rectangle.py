@@ -20,10 +20,6 @@ class TestRectangle(unittest.TestCase):
     def test_2_0(self):
         """Test Rectangle class: check for id."""
 
-        r1 = Rectangle(10, 2)
-        self.assertEqual(r1.id, 1)
-        r2 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 2)
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
         r4 = Rectangle(10, 2, 4, 5, "Hello")
@@ -55,12 +51,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(
             "__init__() missing 1 required positional argument: 'height'", str(
                 x.exception))
+        s = "__init__() missing 2 required positional arguments: 'width' and 'height'"
         with self.assertRaises(TypeError) as x:
             r1 = Rectangle()
-        self.assertEqual(
-            "__init__() missing 2 required positional \
-            arguments: 'width' and 'height'", str(
-                x.exception))
+        self.assertEqual(s, str(x.exception))
 
     def test_2_3(self):
         """Test class Rectangle: check for inheritance."""
@@ -208,12 +202,11 @@ class TestRectangle(unittest.TestCase):
     def test_x13_1(self):
         """Test for public method to_dictionary with wrong args."""
 
+        s = "to_dictionary() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as x:
             r1 = Rectangle(10, 2, 1, 9)
             r1_dictionary = r1.to_dictionary("Hi")
-        self.assertEqual("to_dictionary() takes 1 positional \
-        argument but 2 were given", str(
-                x.exception))
+        self.assertEqual(s, str(x.exception))
 
 
 if __name__ == '__main__':

@@ -134,12 +134,11 @@ class TestSquare(unittest.TestCase):
     def test_x14_1(self):
         """Test for public method to_dictionary with wrong args."""
 
+        s = "to_dictionary() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as x:
             s1 = Square(10, 2, 1, 9)
             s1_dictionary = s1.to_dictionary("Hi")
-        self.assertEqual("to_dictionary() takes 1 positional \
-        argument but 2 were given", str(
-                x.exception))
+        self.assertEqual(s, str(x.exception))
 
 
 if __name__ == '__main__':
