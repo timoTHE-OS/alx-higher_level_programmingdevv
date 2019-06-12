@@ -58,7 +58,7 @@ class Base:
 
         if type(list_objs) != list and list_objs is not None:
             raise TypeError("list_objs must be a list of instances")
-        if any(isinstance(x, cls) is False for x in list_objs):
+        if any(issubclass(type(x), Base) is False for x in list_objs):
             raise TypeError("list_objs must be a list of instances")
         if list_objs is None or list_objs == []:
             l = []
