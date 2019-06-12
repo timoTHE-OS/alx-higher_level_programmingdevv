@@ -56,15 +56,15 @@ class Base:
             - list_objs: list of instances who inherits of Base
         """
 
-        if (type(list_objs) != list and
-           list_objs is not None or
-           not all(isinstance(x, cls) for x in list_objs)):
+        if type(list_objs) != list and list_objs is not None:
+            raise TypeError("list_objs must be a list of instances")
+        if not all(type(x) == cls for x in list_objs):
             raise TypeError("list_objs must be a list of instances")
         filename = cls.__name__ + ".json"
         l = []
         s = ''
-        with open(filename, 'w+') as f:
-            if list_objs is not None:
+        with open(filename, 'w') as f:
+            if list_objs is not None and list_objs != []:
                 for x in list_objs:
                     l_dict = x.to_dictionary()
                     l.append(l_dict)
@@ -95,8 +95,10 @@ class Base:
 
         Returns: instance created
         """
-
-        dummy = cls(1, 1)
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 
