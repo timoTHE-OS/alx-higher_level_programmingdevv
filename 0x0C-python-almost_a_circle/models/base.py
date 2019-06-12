@@ -58,13 +58,13 @@ class Base:
 
         if type(list_objs) != list and list_objs is not None:
             raise TypeError("list_objs must be a list of instances")
-        if any(type(x) != cls for x in list_objs):
+        if any(isinstance(x, cls) is False for x in list_objs):
             raise TypeError("list_objs must be a list of instances")
-        filename = cls.__name__ + ".json"
         if list_objs is None or list_objs == []:
             l = []
         else:
             l = [i.to_dictionary() for i in list_objs]
+        filename = cls.__name__ + ".json"
         with open(filename, 'w') as f:
                 f.write(cls.to_json_string(l))
 
