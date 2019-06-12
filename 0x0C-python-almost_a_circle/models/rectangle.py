@@ -11,6 +11,8 @@ class Rectangle(Base):
     Public instance methods:
         - area()
         - display()
+        - to_dictionary()
+        - update()
     Inherits from Base.
     """
 
@@ -135,18 +137,31 @@ class Rectangle(Base):
 
         if args is not None and len(args) != 0:
             if len(args) >= 1:
-                setattr(self, 'id', args[0])
+                if type(args[0]) != int and args[0] is not None:
+                    raise TypeError("id must be an integer")
+                self.id = args[0]
             if len(args) > 1:
-                setattr(self, 'width', args[1])
+                self.width = args[1]
             if len(args) > 2:
-                setattr(self, 'height', args[2])
+                self.height = args[2]
             if len(args) > 3:
-                setattr(self, 'x', args[3])
+                self.x = args[3]
             if len(args) > 4:
-                setattr(self, 'y', args[4])
+                self.y = args[4]
         else:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key == "id":
+                    if type(value) != int and value is not None:
+                        raise TypeError("id must be an integer")
+                    self.id = value
+                if key == "width":
+                    self.width = value
+                if key == "height":
+                    self.height = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle."""

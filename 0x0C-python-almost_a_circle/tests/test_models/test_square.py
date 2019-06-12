@@ -17,15 +17,20 @@ from models.square import Square
 class TestSquare(unittest.TestCase):
     """Test class for Square class."""
 
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
     def test_10_0(self):
         """Test Square class: check for attributes."""
 
-        s1 = Square(5, 3, 4, 5)
+        s0 = Square(1)
+        self.assertEqual(s0.id, 1)
+        s1 = Square(5, 3, 4)
         self.assertEqual(s1.height, 5)
         self.assertEqual(s1.width, 5)
         self.assertEqual(s1.x, 3)
         self.assertEqual(s1.y, 4)
-        self.assertEqual(s1.id, 5)
+        self.assertEqual(s1.id, 2)
 
     def test_10_1(self):
         """Test __str__ representation."""
@@ -116,7 +121,18 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.id, 89)
         self.assertEqual(s1.y, 1)
 
-    def test_x14_0(self):
+    def test_12_1(self):
+        """Test for update method on Square with wrong types."""
+
+        s1 = Square(9)
+        with self.assertRaises(TypeError) as x:
+            s1.update(2, 3, 4, "hello")
+        self.assertEqual("y must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            s1.update("hello", 8, 9)
+        self.assertEqual("id must be an integer", str(x.exception))
+
+    def test_14_0(self):
         """Test for public method to_dictionary."""
 
         s1 = Square(10, 2, 1)
@@ -131,7 +147,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(type(s2_dictionary), dict)
         self.assertFalse(s1 == s2)
 
-    def test_x14_1(self):
+    def test_14_1(self):
         """Test for public method to_dictionary with wrong args."""
 
         s = "to_dictionary() takes 1 positional argument but 2 were given"

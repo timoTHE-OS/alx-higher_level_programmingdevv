@@ -17,17 +17,26 @@ from models.square import Square
 class TestRectangle(unittest.TestCase):
     """Test cases for the Rectangle class."""
 
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
     def test_2_0(self):
         """Test Rectangle class: check for id."""
 
+        r0 = Rectangle(1, 2)
+        self.assertEqual(r0.id, 1)
+        r1 = Rectangle(2, 3)
+        self.assertEqual(r1.id, 2)
+        r2 = Rectangle(3, 4)
+        self.assertEqual(r2.id, 3)
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
-        r4 = Rectangle(10, 2, 4, 5, "Hello")
-        self.assertEqual(r4.id, "Hello")
+        r4 = Rectangle(10, 2, 4, 5, 34)
+        self.assertEqual(r4.id, 34)
         r5 = Rectangle(10, 2, 4, 5, -5)
         self.assertEqual(r5.id, -5)
-        r6 = Rectangle(10, 2, 4, 5, 9.8)
-        self.assertEqual(r6.id, 9.8)
+        r6 = Rectangle(10, 2, 4, 5, 9)
+        self.assertEqual(r6.id, 9)
 
     def test_2_1(self):
         """Test Rectangle class: check for attributes values."""
@@ -172,6 +181,17 @@ class TestRectangle(unittest.TestCase):
         r1.update()
         self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
 
+    def test_8_1(self):
+        """Test for public method update with wrong types."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        with self.assertRaises(TypeError) as x:
+            r1.update("hi")
+        self.assertEqual("id must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r1.update(65, 89, "hi")
+        self.assertEqual("height must be an integer", str(x.exception))
+
     def test_9_0(self):
         """Test for public method update with kwargs."""
 
@@ -184,7 +204,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 1)
         self.assertEqual(r1.height, 2)
 
-    def test_x13_0(self):
+    def test_9_1(self):
+        """Test for public method update with wrong types in kwargs."""
+
+        r1 = Rectangle(10, 10, 10, 10)
+        with self.assertRaises(TypeError) as x:
+            r1.update(id='hi')
+        self.assertEqual("id must be an integer", str(x.exception))
+        with self.assertRaises(TypeError) as x:
+            r1.update(height=65, x=2, width="hi")
+        self.assertEqual("width must be an integer", str(x.exception))
+
+    def test_13_0(self):
         """Test for public method to_dictionary."""
 
         r1 = Rectangle(10, 2, 1, 9)
@@ -199,7 +230,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(type(r2_dictionary), dict)
         self.assertFalse(r1 == r2)
 
-    def test_x13_1(self):
+    def test_13_1(self):
         """Test for public method to_dictionary with wrong args."""
 
         s = "to_dictionary() takes 1 positional argument but 2 were given"
