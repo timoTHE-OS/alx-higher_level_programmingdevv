@@ -58,18 +58,15 @@ class Base:
 
         if type(list_objs) != list and list_objs is not None:
             raise TypeError("list_objs must be a list of instances")
-        if not all(type(x) == cls for x in list_objs):
+        if any(type(x) != cls for x in list_objs):
             raise TypeError("list_objs must be a list of instances")
         filename = cls.__name__ + ".json"
-        l = []
-        s = ''
+        if list_objs is None or list_objs == []:
+            l = []
+        else:
+            l = [i.to_dictionary() for i in list_objs]
         with open(filename, 'w') as f:
-            if list_objs is not None and list_objs != []:
-                for x in list_objs:
-                    l_dict = x.to_dictionary()
-                    l.append(l_dict)
-                s = cls.to_json_string(l)
-            f.write(s)
+                f.write(cls.to_json_string(l))
 
     @staticmethod
     def from_json_string(json_string):

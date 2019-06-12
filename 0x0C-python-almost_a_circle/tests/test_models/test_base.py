@@ -266,9 +266,12 @@ class TestBase(unittest.TestCase):
     def test_19_1(self):
         """Test class method load_from_file with missing files."""
 
-        os.remove("Rectangle.json")
-        os.remove("Square.json")
-        os.remove("Base.json")
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+        if os.path.exists("Base.json"):
+            os.remove("Base.json")
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(list_rectangles_output, [])
         list_squares_output = Square.load_from_file()
