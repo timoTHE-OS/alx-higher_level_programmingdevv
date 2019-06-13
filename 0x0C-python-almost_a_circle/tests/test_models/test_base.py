@@ -141,10 +141,10 @@ class TestBase(unittest.TestCase):
             self.assertEqual(len(f.read()), len(res))
         Square.save_to_file(None)
         res = "[]"
-        with open("Rectangle.json", "r") as f:
+        with open("Square.json", "r") as f:
             self.assertEqual(f.read(), res)
         Square.save_to_file([])
-        with open("Rectangle.json", "r") as f:
+        with open("Square.json", "r") as f:
             self.assertEqual(f.read(), res)
 
     def test_16_1(self):
