@@ -141,15 +141,15 @@ class TestBase(unittest.TestCase):
         self.assertEqual(
             "'Base' object has no attribute 'to_dictionary'", str(
                 x.exception))
-        with self.assertRaises(TypeError) as x:
+        with self.assertRaises(AttributeError) as x:
             Rectangle.save_to_file([3, 4])
         self.assertEqual(
-            "list_objs must be a list of instances", str(
+            "'int' object has no attribute 'to_dictionary'", str(
                 x.exception))
         with self.assertRaises(TypeError) as x:
-            Rectangle.save_to_file(5.9)
+            Rectangle.save_to_file(5)
         self.assertEqual(
-            "list_objs must be a list of instances", str(
+            "'int' object is not iterable", str(
                 x.exception))
 
     def test_16_2(self):

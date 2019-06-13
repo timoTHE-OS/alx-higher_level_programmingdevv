@@ -55,11 +55,12 @@ class Base:
         Args:
             - list_objs: list of instances who inherits of Base
         """
-
+        """
         if type(list_objs) != list and list_objs is not None:
             raise TypeError("list_objs must be a list of instances")
         if any(issubclass(type(x), Base) is False for x in list_objs):
             raise TypeError("list_objs must be a list of instances")
+        """
         if list_objs is None or list_objs == []:
             jstr = "[]"
         else:
