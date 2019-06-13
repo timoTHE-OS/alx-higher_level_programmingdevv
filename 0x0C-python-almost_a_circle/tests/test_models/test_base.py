@@ -125,6 +125,10 @@ class TestBase(unittest.TestCase):
                ' {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]')
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
+        Rectangle.save_to_file(None)
+        res = "[]"
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), res)
         s0 = Square(9, 3, 1, 12)
         s1 = Square(6, 7)
         Square.save_to_file([s0, s1])
@@ -132,6 +136,13 @@ class TestBase(unittest.TestCase):
                ' {"id": 3, "size": 6, "x": 7, "y": 0}]')
         with open("Square.json", "r") as f:
             self.assertEqual(len(f.read()), len(res))
+        Square.save_to_file(None)
+        res = "[]"
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), res)
+        Square.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), res)
 
     def test_16_1(self):
         """Test class method save_to_file with errors."""

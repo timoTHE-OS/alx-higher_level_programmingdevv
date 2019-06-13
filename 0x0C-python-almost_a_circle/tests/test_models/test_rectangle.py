@@ -93,6 +93,9 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(0, 2)
         self.assertEqual("width must be > 0", str(x.exception))
         with self.assertRaises(ValueError) as x:
+            r = Rectangle(2, 0)
+        self.assertEqual("height must be > 0", str(x.exception))
+        with self.assertRaises(ValueError) as x:
             r = Rectangle(2, -3)
         self.assertEqual("height must be > 0", str(x.exception))
         with self.assertRaises(ValueError) as x:
