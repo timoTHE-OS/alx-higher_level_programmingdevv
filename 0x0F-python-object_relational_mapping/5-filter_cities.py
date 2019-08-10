@@ -24,3 +24,5 @@ if __name__ == '__main__':
                 print("{}".format(rows[i][j]))
             else:
                 print("{}".format(rows[i][j]), end=', ')
+    cur.close()
+    db.close()
