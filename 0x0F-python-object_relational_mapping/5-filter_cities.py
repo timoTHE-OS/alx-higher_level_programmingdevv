@@ -18,11 +18,6 @@ if __name__ == '__main__':
                 WHERE states.name = %s\
                 ORDER BY cities.id ASC", (sys.argv[4],))
     rows = cur.fetchall()
-    for i in range(len(rows)):
-        for j in range(len(rows[i])):
-            if i == len(rows) - 1:
-                print("{}".format(rows[i][j]))
-            else:
-                print("{}".format(rows[i][j]), end=', ')
+    print(", ".join([row[0] for row in rows]))
     cur.close()
     db.close()
