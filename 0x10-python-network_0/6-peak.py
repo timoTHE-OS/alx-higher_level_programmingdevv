@@ -9,6 +9,8 @@ def find_peak(list_of_integers):
         return None
     if len(set(list_of_integers)) == 1:
         return list_of_integers[0]
+    if len(list_of_integers) == 2:
+        return max(list_of_integers)
     return find_peak_helper(list_of_integers, 0, len(list_of_integers) - 1)
 
 
