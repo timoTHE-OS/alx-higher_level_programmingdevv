@@ -5,29 +5,20 @@
 def find_peak(list_of_integers):
     """Finds a peak in list_of_integers"""
 
-    if list_of_integers is None or list_of_integers == []:
+    l = list_of_integers.copy()
+    if l is None or l == []:
         return None
-    if len(set(list_of_integers)) == 1:
-        return list_of_integers[0]
-    if len(list_of_integers) == 2:
-        return max(list_of_integers)
-    return find_peak_helper(list_of_integers, 0, len(list_of_integers) - 1)
-
-
-def find_peak_helper(l, lo, hi):
-    """Helper function using a Divide&Conquer algorithm
-    to return a peak in a list of integers"""
-
+    if len(set(l)) == 1:
+        return l[0]
+    lo = 0
+    hi = len(l)
     mid = ((hi - lo) / 2) + lo
     mid = int(mid)
-    if mid > 0 and mid < len(l) - 1:
-        if l[mid] > l[mid - 1] and l[mid] > l[mid + 1]:
-            return l[mid]
-    if mid == 0 and l[mid] > l[mid + 1]:
-        return l[mid]
-    if mid == len(l) - 1 and l[mid] > l[mid - 1]:
+    if hi == 2:
+        return max(l)
+    if l[mid] > l[mid - 1] and l[mid] > l[mid + 1]:
         return l[mid]
     if mid > 0 and l[mid] < l[mid + 1]:
-        return find_peak_helper(l, mid + 1, hi)
+        return find_peak(l[mid + 1:])
     if mid > 0 and l[mid] < l[mid - 1]:
-        return find_peak_helper(l, lo, mid - 1)
+        return find_peak(l[:mid])
