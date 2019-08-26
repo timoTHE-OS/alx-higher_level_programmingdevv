@@ -3,13 +3,11 @@
 displays the body of the response"""
 
 import requests
-import sys
-
+from sys import argv
 if __name__ == "__main__":
-
-    r = requests.get(sys.argv[1])
-    code = r.status_code
-    if code >= 400:
-        print("Error code: {}".format(code))
+    r = requests.get(argv[1])
+    status = r.status_code
+    if status >= 400:
+        print("Error code: {}".format(status))
     else:
         print(r.text)
