@@ -8,7 +8,8 @@ if __name__ == "__main__":
     import sys
 
     r = requests.get(sys.argv[1])
-    if r.status_code > 400:
-        print("Error code: {}".format(r.status_code))
+    code = r.status_code
+    if code > 400:
+        print("Error code: {}".format(code))
     else:
         print(r.text)
