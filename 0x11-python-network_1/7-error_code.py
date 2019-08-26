@@ -4,10 +4,10 @@ displays the body of the response"""
 
 import requests
 from sys import argv
+
 if __name__ == "__main__":
-    r = requests.get(argv[1])
-    status = r.status_code
-    if status >= 400:
-        print("Error code: {}".format(status))
+    response = requests.get(argv[1])
+    if response.status_code > 400:
+        print("Error code:", response.status_code)
     else:
-        print(r.text)
+        print(response.text)
