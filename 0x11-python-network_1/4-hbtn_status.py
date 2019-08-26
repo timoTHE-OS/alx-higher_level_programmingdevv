@@ -2,10 +2,11 @@
 """Fetches https://intranet.hbtn.io/status"""
 
 
-import requests
+if __name__ == "__main__":
+    import requests
 
-r = requests.get('https://intranet.hbtn.io/status')
+    r = requests.get('https://intranet.hbtn.io/status')
 
-print('Body response:')
-print('    - type: {}'.format(type(r.text)))
-print('    - content: {}'.format(r.text))
+    print('Body response:')
+    print('    - type: {}'.format(type(r.text)))
+    print('    - content: {}'.format(r.text))
