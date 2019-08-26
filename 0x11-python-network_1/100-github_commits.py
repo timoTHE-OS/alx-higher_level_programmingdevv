@@ -13,4 +13,5 @@ if __name__ == "__main__":
         print('None')
     else:
         for com in r.json()[:10]:
-            print("{}: {}".format(com.get('sha'), com.get('author').get('login')))
+            print("{}: {}".format(com.get('sha'),
+                                  com.get('commit').get('author').get('name')))
