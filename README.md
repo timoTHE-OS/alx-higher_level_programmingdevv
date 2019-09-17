@@ -32,5 +32,7 @@ Directories | Description
 ## Author
 
 Laura Roudge - Cohort 8
+
 email: laura.derohan@gmail.com
+
 Twitter: https://twitter.com/LRoudge
