@@ -2,7 +2,6 @@
 
 const request = require('request');
 
-let correctUrl;
 request(process.argv[2], function (error, response, body) {
   if (error) {
     console.error(error);
@@ -15,7 +14,7 @@ request(process.argv[2], function (error, response, body) {
   }, 0);
   */
   const nb = JSON.parse(body).results.filter((elem) => {
-    return elem.characters.filter((url) => { return url.includes("18"); }).length;
+    return elem.characters.filter((url) => { return url.includes('18'); }).length;
   }).length;
   console.log(nb);
 });
