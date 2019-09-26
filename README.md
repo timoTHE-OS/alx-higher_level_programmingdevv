@@ -27,7 +27,10 @@ Directories | Description
 [0x0F-python-object_relational_mapping](./0x0F-python-object_relational_mapping) | Introduction to object-relational mapping in Python with the SQLAlchemy and MySQLdb modules
 [0x10-python-network_0](./0x10-python-network_0) | Introduction to the curl command in Bash and majing HTTP requests
 [0x11-python-network_1](./0x11-python-network_1) | Introduction to HTTP requests in Python, APIs and requests module
-[0x12-javascript-warm_up](./0x12-javascript-warm_up) | Introduction to Javascript: variables, functions, loops, if/else, scope
+[0x12-javascript-warm_up](./0x12-javascript-warm_up) | Introduction to Javascript/NodeJS: variables, functions, loops, if/else, scope
+[0x13-javascript_objects_scopes_closures](./0x13-javascript_objects_scopes_closures) | Introduction to NodeJS: objects, scopes, closures
+[0x14-javascript-web_scraping](./0x14-javascript-web_scraping) | Introduction to scraping APIs in NodeJS
+[0x15-javascript-web_jquery](./0x15-javascript-web_jquery) | Introduction to JQuery
 
 ## Author
 
