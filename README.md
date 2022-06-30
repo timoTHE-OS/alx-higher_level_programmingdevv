@@ -1,4 +1,4 @@
-# Holberton School Higher-level Programming Track
+# ALX Higher-level Programming Track
 
 ## Description
 At Holberton School, we learn by doing. We have projects everyday that we have to push on GitHub in order for an automatic review to be done.
@@ -32,7 +32,7 @@ Directories | Description
 [0x14-javascript-web_scraping](./0x14-javascript-web_scraping) | Introduction to scraping APIs in NodeJS
 [0x15-javascript-web_jquery](./0x15-javascript-web_jquery) | Introduction to JQuery
 
-## Author
+<!-- ## Author -->
 
 Laura Roudge - Cohort 8
 
