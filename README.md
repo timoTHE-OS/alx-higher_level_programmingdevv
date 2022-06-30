@@ -1,5 +1,6 @@
 # ALX Higher-level Programming Track
 
+<!--
 ## Description
 At Holberton School, we learn by doing. We have projects everyday that we have to push on GitHub in order for an automatic review to be done.
 This repository contains directories each corresponding to a high-level language project.
@@ -31,11 +32,12 @@ Directories | Description
 [0x13-javascript_objects_scopes_closures](./0x13-javascript_objects_scopes_closures) | Introduction to NodeJS: objects, scopes, closures
 [0x14-javascript-web_scraping](./0x14-javascript-web_scraping) | Introduction to scraping APIs in NodeJS
 [0x15-javascript-web_jquery](./0x15-javascript-web_jquery) | Introduction to JQuery
+-->
 
-<!-- ## Author -->
+## Author
 
-Laura Roudge - Cohort 8
+LEKAN OLAOYE - Cohort 6
 
-email: laura.derohan@gmail.com
+email: leocode425@gmail.com
 
-Twitter: https://twitter.com/LRoudge
+Twitter: https://twitter.com/dev_leoo
