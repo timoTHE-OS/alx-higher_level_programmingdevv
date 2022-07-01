@@ -34,10 +34,4 @@ Directories | Description
 [0x15-javascript-web_jquery](./0x15-javascript-web_jquery) | Introduction to JQuery
 -->
 
-## Author
 
-LEKAN OLAOYE - Cohort 6
-
-email: leocode425@gmail.com
-
-Twitter: https://twitter.com/dev_leoo
