@@ -14,3 +14,5 @@ Files | Description
 [real_print.py](./real_print.py) | Helper file for the above task
 [102-magic_calculation.py](./102-magic_calculation.py) | Python function def magic_calculation(a, b): that does exactly the same as a given Python bytecode
 [103-fast_alphabet.py](./103-fast_alphabet.py) | Python program that prints the alphabet in uppercase, followed by a new line
+
+Author - Lekan Olaoye
